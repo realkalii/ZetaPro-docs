@@ -68,6 +68,52 @@ a.card:hover{border-color:var(--mut);transform:translateY(-4px);box-shadow:0 14p
 @keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
 #res a{display:block;padding:9px 12px;border-radius:12px;text-decoration:none;font-size:14px;transition:background .15s}#res a:hover{background:var(--panel2)}#res small{display:block;color:var(--mut)}
 @media(max-width:900px){#menu{display:inline-flex}nav{transform:translateX(calc(-100% - 20px));transition:transform .35s var(--ease);width:min(300px,84vw);animation:none;box-shadow:0 20px 50px #0009;z-index:40}nav.open{transform:none}#bd{display:block;position:fixed;inset:0;background:#0007;opacity:0;pointer-events:none;transition:opacity .3s;z-index:35}nav.open+#bd{opacity:1;pointer-events:auto}main{margin-left:0;padding:90px 18px 60px}h1{font-size:28px}.ver,.gh span{display:none}}
+.zp{--zb:#0e0e0f;--zs:#151517;--zt:#1d1d20;--zx:#ececee;--zm:#8a8a92;--za:#f0f0f2;--zat:#0c0c0d;--zl:#28282c;position:relative;border:1px solid var(--zl);border-radius:22px;background:var(--zb);color:var(--zx);overflow:hidden;margin:14px 0 26px;box-shadow:0 20px 50px #0004;transition:background .3s,border-color .3s,color .3s}
+.zp[data-th=light]{--zb:#f5f5f7;--zs:#ffffff;--zt:#ececf0;--zx:#18181b;--zm:#71717a;--za:#18181b;--zat:#fafafa;--zl:#dbdbe0}
+.zp[data-th=midnight]{--zb:#06070a;--zs:#0b0c11;--zt:#11131a;--zx:#e2e5f0;--zm:#747a8c;--za:#8296ff;--zat:#06070a;--zl:#1c1f2a}
+.zp[data-th=zeta]{--zb:#0b0b0b;--zs:#131313;--zt:#1b1b1b;--zx:#f2f2f2;--zm:#808080;--za:#c9ff70;--zat:#0a0a0a;--zl:#262626}
+.zp button{font:inherit;color:inherit;cursor:pointer}
+.zp-top{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--zl);flex-wrap:wrap}
+.zp-top b{font-size:14px}.zp-top small{color:var(--zm);margin-left:8px;font-weight:400}
+.zp-th{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.zp-th button{background:var(--zs);border:1px solid var(--zl);border-radius:99px;padding:3px 12px;font-size:12px;color:var(--zm);transition:all .2s}
+.zp-th button.on{background:var(--za);color:var(--zat);border-color:var(--za)}
+.zp-body{display:flex;min-height:310px}
+.zp-side{width:150px;padding:10px;border-right:1px solid var(--zl);display:flex;flex-direction:column;gap:4px;flex:none}
+.zp-side button{position:relative;text-align:left;background:none;border:0;border-radius:12px;padding:8px 14px;font-size:14px;color:var(--zm);transition:background .2s,color .2s}
+.zp-side button.on{background:var(--zs);color:var(--zx)}
+.zp-side button.on::before{content:"";position:absolute;left:3px;top:26%;bottom:26%;width:3px;border-radius:9px;background:var(--za)}
+.zp-pg{flex:1;padding:12px;display:none;flex-direction:column;gap:8px;min-width:0}
+.zp-pg.on{display:flex;animation:rise .35s var(--ease) both}
+.zs-t{font-size:12px;color:var(--zm);margin:2px 4px 0}
+.zr{display:flex;align-items:center;gap:12px;background:var(--zs);border:1px solid var(--zl);border-radius:14px;padding:10px 14px;transition:transform .2s var(--ease)}
+.zr:hover{transform:translateY(-1px)}.zr>div:first-child{flex:1;min-width:0}.zr b{display:block;font-size:14px}.zr small{color:var(--zm);font-size:12px}
+.ztg{width:40px;height:22px;border-radius:99px;background:var(--zt);border:1px solid var(--zl);position:relative;cursor:pointer;flex:none;transition:background .2s}
+.ztg::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:var(--zm);transition:transform .25s var(--ease),background .2s}
+.ztg.on{background:var(--za)}.ztg.on::after{transform:translateX(18px);background:var(--zat)}
+.zsl{display:flex;align-items:center;gap:10px}.zsl input{width:110px;accent-color:var(--za)}
+.zsl output{min-width:38px;text-align:center;background:var(--zt);border:1px solid var(--zl);border-radius:8px;padding:2px 6px;font-size:12px}
+.zd{position:relative}
+.zd>button,.zk,.zgo{display:inline-flex;gap:8px;align-items:center;background:var(--zt);border:1px solid var(--zl);border-radius:10px;padding:5px 12px;font-size:13px;transition:border-color .2s,transform .2s var(--ease)}
+.zd>button:hover,.zk:hover,.zgo:hover{border-color:var(--zm)}.zgo:active{transform:scale(.95)}
+.zd ul{display:none;position:absolute;right:0;top:112%;margin:0;padding:4px;list-style:none;background:var(--zs);border:1px solid var(--zl);border-radius:12px;z-index:5;min-width:130px;animation:pop .2s var(--ease)}
+.zd.open ul{display:block}.zd li{padding:6px 10px;border-radius:8px;cursor:pointer;font-size:13px}.zd li:hover{background:var(--zt)}
+.zp-toast{position:absolute;right:14px;bottom:14px;background:var(--zs);border:1px solid var(--zl);border-left:3px solid var(--za);border-radius:12px;padding:9px 14px;font-size:13px;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.zp-toast.on{opacity:1;transform:none}
+.st{list-style:none;counter-reset:s;padding:0;margin:14px 0}
+.st>li{counter-increment:s;position:relative;padding-left:48px;margin-bottom:24px}
+.st>li::before{content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);display:grid;place-items:center;font-weight:700;font-size:14px}
+.st>li>b{display:block;font-size:16px;margin-bottom:2px}
+.faq details{border:1px solid var(--line);border-radius:16px;background:var(--panel);margin:10px 0;transition:border-color .2s}
+.faq details[open]{border-color:var(--mut)}
+.faq summary{cursor:pointer;list-style:none;padding:14px 18px;font-weight:600;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--mut);transition:transform .25s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details>div{padding:0 18px 14px;color:var(--mut);animation:rise .3s var(--ease)}.faq details>div p{margin:8px 0}
+.cta{display:inline-flex;align-items:center;gap:9px;background:var(--ac);color:var(--bg);font-weight:600;text-decoration:none;border-radius:99px;padding:10px 20px;transition:transform .25s var(--ease),box-shadow .25s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px #0005}
+@media(max-width:600px){.zp-body{flex-direction:column}.zp-side{width:auto;flex-direction:row;border-right:0;border-bottom:1px solid var(--zl);overflow:auto}}
 @media(prefers-reduced-motion:reduce){*,::before,::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -90,11 +136,87 @@ a.card:hover{border-color:var(--mut);transform:translateY(-4px);box-shadow:0 14p
 <h1>ZETA Pro</h1>
 <p class="lead">A modern, modular UI library for Roblox executors, written in Luau. Dark by default, themeable at runtime, and built to clean up after itself.</p>
 <div class="cb"><pre><code>local Zeta = loadstring(game:HttpGet("https://raw.githubusercontent.com/realkalii/ZetaPro/main/src/init.luau"))()</code></pre></div>
+
+<h2>Try ZetaPro</h2>
+<p>An interactive mock of the interface. Switch tabs and themes, flip the toggle, drag the slider, open the dropdown, and rebind the menu key in Settings. The real UI runs inside Roblox.</p>
+<div class="zp" id="zp" data-th="dark">
+<div class="zp-top"><b>ZETA Pro<small>Playground</small></b><div class="zp-th"><button class="on" data-th="dark">Dark</button><button data-th="light">Light</button><button data-th="midnight">Midnight</button><button data-th="zeta">Zeta</button></div></div>
+<div class="zp-body">
+<div class="zp-side"><button class="on" data-p="main">Main</button><button data-p="settings">Settings</button><button data-p="info">Info</button></div>
+<div class="zp-pg on" data-p="main">
+<div class="zs-t">Basics</div>
+<div class="zr"><div><b>Say hello</b><small>Shows a notification</small></div><button class="zgo" id="zhello">Run</button></div>
+<div class="zr"><div><b>Enabled</b><small>A simple toggle</small></div><span class="ztg on"></span></div>
+<div class="zr"><div><b>Speed</b><small>Drag the slider</small></div><div class="zsl"><input type="range" min="16" max="100" value="50"><output>50</output></div></div>
+<div class="zr"><div><b>Mode</b><small>Pick an option</small></div><div class="zd"><button>Option 1<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul><li>Option 1</li><li>Option 2</li><li>Option 3</li></ul></div></div>
+</div>
+<div class="zp-pg" data-p="settings">
+<div class="zs-t">Interface</div>
+<div class="zr"><div><b>Menu key</b><small>Click, then press a key</small></div><button class="zk" id="zk" data-k="RightControl">RightControl</button></div>
+<div class="zr"><div><b>Acrylic</b><small>Translucent window</small></div><span class="ztg on"></span></div>
+</div>
+<div class="zp-pg" data-p="info">
+<div class="zs-t">About</div>
+<div class="zr"><div><b>ZETA Pro</b><small>This mock only shows how the library looks and feels.</small></div></div>
+</div>
+</div>
+<div class="zp-toast" id="zt"></div>
+</div>
+
+<h2>Quick start</h2>
+<ol class="st">
+<li><b>Install</b><p>Run this in your executor. ZetaPro loads itself, and running it again replaces the previous instance.</p>
+<div class="cb"><pre><code>local Zeta = loadstring(game:HttpGet("https://raw.githubusercontent.com/realkalii/ZetaPro/main/src/init.luau"))()</code></pre></div></li>
+<li><b>Create your first window</b><p>Copy the full script below. It builds the same window as the playground above.</p>
+<div class="cb"><pre><code>local Zeta = loadstring(game:HttpGet("https://raw.githubusercontent.com/realkalii/ZetaPro/main/src/init.luau"))()
+
+local Window = Zeta:CreateWindow({
+    Title = "ZETA Pro",
+    SubTitle = "Quick start",
+    Theme = "Zeta",
+    MinimizeKey = Enum.KeyCode.RightControl,
+})
+
+local Main = Window:AddTab({ Title = "Main", Icon = "home" })
+local Section = Main:AddSection("Basics")
+
+Section:AddButton({
+    Title = "Say hello",
+    Description = "Shows a notification",
+    Callback = function()
+        Zeta:Notify({ Title = "ZETA Pro", Content = "Hello!", Type = "Success", Duration = 3 })
+    end,
+})
+
+Section:AddToggle("Enabled", {
+    Title = "Enabled",
+    Default = true,
+    Callback = function(on) print(on) end,
+})
+
+Section:AddSlider("Speed", {
+    Title = "Speed",
+    Min = 16,
+    Max = 100,
+    Default = 50,
+    Callback = function(value) print(value) end,
+})
+
+Section:AddDropdown("Mode", {
+    Title = "Mode",
+    Values = { "Option 1", "Option 2", "Option 3" },
+    Default = 1,
+    Callback = function(value) print(value) end,
+})</code></pre></div></li>
+<li><b>Explore</b><p>Press <code>RightControl</code> to hide or show the window, then keep going.</p></li>
+</ol>
 <div class="grid">
-<a class="card" href="#quickstart"><b>Quick start</b><span>Your first window in 20 lines.</span></a>
 <a class="card" href="#components"><b>Components</b><span>Button, Toggle, Slider, Dropdown, Input, Keybind, Colorpicker.</span></a>
 <a class="card" href="#themes"><b>Themes</b><span>Dark, Light, Midnight, Zeta, or your own. Hot swap.</span></a>
-<a class="card" href="#api"><b>API reference</b><span>Every public method on one page.</span></a>
+<a class="card" href="#icons"><b>Icons</b><span>Built-in families such as solar:sword and geist:code.</span></a>
+<a class="card" href="#keybinds"><b>Keybinds</b><span>Hotkeys you can rebind at runtime.</span></a>
+<a class="card" href="#faq"><b>FAQ</b><span>Common questions and where to get help.</span></a>
+<a class="card" href="https://discord.gg/HMwSnXRxsj" target="_blank" rel="noopener"><b>Join our Discord</b><span>Ask questions and share what you build.</span></a>
 </div>
 <h2>Highlights</h2>
 <table><tr><td>Window</td><td>Drag, resize, minimize/restore (hotkey and touch button), global search, dialogs, acrylic.</td></tr>
@@ -246,7 +368,7 @@ Tab:AddDropdown("Targets", {
     Callback = function(key) Window:Toggle() end,
     ChangedCallback = function(key) print("rebound", key) end,
 })</code></pre></div>
-<p>Click, then press a key or mouse button 2/3. <code>Esc</code> cancels, <code>Backspace</code> clears, right-click resets. Conflicts with another bind show a warning.</p>
+<p>Click, then press a key or mouse button 2/3. <code>Esc</code> cancels, <code>Backspace</code> clears, right-click resets. Conflicts with another bind show a warning. See <a href="#keybinds">Keybinds</a> for the full guide.</p>
 
 <h2>Colorpicker</h2>
 <div class="cb"><pre><code>Tab:AddColorpicker("Accent", {
@@ -260,6 +382,84 @@ Tab:AddDropdown("Targets", {
 <div class="cb"><pre><code>Tab:AddParagraph({ Title = "Info", Content = "Some text.", Icon = "info" })
 Tab:AddLabel({ Text = "A flat text row" })
 Tab:AddDivider({})</code></pre></div>
+</section>
+
+<section id="keybinds" data-g="Components" data-t="Keybinds">
+<h1>Keybinds</h1>
+<p class="lead">Hotkeys that players can rebind at runtime. All keybinds share one input connection and clean up with their component.</p>
+<h2>Basic example</h2>
+<div class="cb"><pre><code>local Menu = Section:AddKeybind("MenuKey", {
+    Title = "Toggle UI",
+    Default = Enum.KeyCode.RightControl,
+    Callback = function(key)
+        Window:Toggle()
+    end,
+})</code></pre></div>
+<p><code>Callback</code> runs every time the bound key is pressed and receives the key. Without an id, <code>Section:AddKeybind({ ... })</code> works too, but only components with an id are saved by <code>Zeta.Config</code>.</p>
+<h2>Initial key</h2>
+<div class="cb"><pre><code>Default = Enum.KeyCode.RightShift
+Default = "RightControl"
+Default = Enum.UserInputType.MouseButton2</code></pre></div>
+<p>A string is the name of an <code>Enum.KeyCode</code> and is case-sensitive. An invalid default raises a clear <code>[ZETA][ERROR]</code> when the component is created.</p>
+<h2>Detect rebinding</h2>
+<div class="cb"><pre><code>Section:AddKeybind("FarmKey", {
+    Title = "Farm hotkey",
+    Default = "F",
+    ChangedCallback = function(key)
+        print("Now bound to", key.Name)
+    end,
+})
+
+Menu:OnChanged(function(key) print(key.Name) end)</code></pre></div>
+<p><code>ChangedCallback</code> and <code>OnChanged</code> fire when the binding changes, not when the key is pressed. To react to the key press from code, use <code>Menu:OnClick(function(key) end)</code>.</p>
+<h2>Change the key at runtime</h2>
+<div class="cb"><pre><code>Menu:SetValue(Enum.KeyCode.E)
+Menu:SetValue("Q")
+Menu:Reset()
+print(Menu:GetValue().Name)</code></pre></div>
+<p>Players can also click the button and press a new key. <code>Esc</code> cancels, <code>Backspace</code> clears the binding, and right-clicking the button resets it to the default. Binding a key that another keybind already uses shows a warning notification.</p>
+<h2>Disable or remove</h2>
+<div class="cb"><pre><code>Menu:SetValue(nil)
+Menu:SetEnabled(false)
+Menu:SetEnabled(true)
+Menu:Destroy()</code></pre></div>
+<table><tr><th>Call</th><th>Effect</th></tr>
+<tr><td><code>SetValue(nil)</code></td><td>Clears the binding. The key shows as None and nothing fires. Also accepts <code>"None"</code>.</td></tr>
+<tr><td><code>SetEnabled(false)</code></td><td>Keeps the binding but ignores presses and blocks the row until enabled again.</td></tr>
+<tr><td><code>Destroy()</code></td><td>Removes the component and its bind. No connections are left behind.</td></tr></table>
+<h2>Real example</h2>
+<div class="cb"><pre><code>local Farm = Section:AddToggle("Farm", {
+    Title = "Auto Farm",
+    Default = false,
+})
+
+Section:AddKeybind("FarmKey", {
+    Title = "Auto Farm hotkey",
+    Description = "Press to turn farming on or off",
+    Default = "F",
+    Callback = function()
+        Farm:SetValue(not Farm:GetValue())
+    end,
+})</code></pre></div>
+<h2>Supported keys</h2>
+<table><tr><th>Kind</th><th>Examples</th></tr>
+<tr><td>Any <code>Enum.KeyCode</code></td><td><code>RightControl</code> <code>LeftControl</code> <code>RightShift</code> <code>LeftShift</code> <code>E</code> <code>Q</code> <code>F</code> <code>F1</code> <code>Space</code></td></tr>
+<tr><td>Key name as a string</td><td><code>"RightControl"</code> <code>"E"</code> <code>"Q"</code></td></tr>
+<tr><td>Mouse buttons</td><td><code>Enum.UserInputType.MouseButton2</code> and <code>MouseButton3</code> (left click is used to cancel rebinding)</td></tr>
+<tr><td>None</td><td><code>nil</code>, <code>"None"</code> or <code>Enum.KeyCode.Unknown</code></td></tr></table>
+<h2>Window key</h2>
+<div class="cb"><pre><code>local Window = Zeta:CreateWindow({
+    Title = "My UI",
+    MinimizeKey = Enum.KeyCode.RightControl,
+})
+
+Window:SetMinimizeKey(Enum.KeyCode.RightShift)
+Window:SetMinimizeKey(nil)</code></pre></div>
+<p>The window key must be an <code>Enum.KeyCode</code>; strings are only accepted by the Keybind component. Pass <code>nil</code> to remove it. A floating restore button is available for touch devices.</p>
+<h2>Good to know</h2>
+<table><tr><td>Typing</td><td>Keybinds do not fire while the game is handling the input, for example when typing in chat or in a text box.</td></tr>
+<tr><td>Mobile</td><td>A touch screen has no key to press, so keybinds only fire with a physical keyboard, and a touch cancels rebinding. Use buttons and the restore button on touch devices.</td></tr>
+<tr><td>Cleanup</td><td><code>Window:Destroy()</code> and <code>Zeta:Unload()</code> remove every bind.</td></tr></table>
 </section>
 
 <section id="dialogs" data-g="Feedback" data-t="Dialogs">
@@ -331,7 +531,11 @@ Icon = "sfsymbols:check"</code></pre></div>
 <tr><td><code>geist</code></td><td>Code, scripts, servers, APIs, databases, developer tools.</td><td><code>geist:script</code> <code>geist:api</code> <code>geist:server</code> <code>geist:debugger</code></td></tr>
 <tr><td><code>craft</code></td><td>Devices, tools, objects, hardware and media.</td><td><code>craft:monitor</code> <code>craft:keyboard</code> <code>craft:camera</code> <code>craft:key</code></td></tr>
 <tr><td><code>sfsymbols</code></td><td>Compact controls and indicators.</td><td><code>sfsymbols:check</code> <code>sfsymbols:toggle</code> <code>sfsymbols:chevron-down</code></td></tr></table>
-<p>All built-in icons share one line style, so icons from different families look consistent next to each other. An unknown family or name shows a small fallback dot instead of an error.</p>
+<p>Plain names use the built-in local set. For <code>family:name</code>, the real icons come from <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>. An unknown family or name shows a small fallback dot instead of an error.</p>
+
+<h2>Real icons and variants</h2>
+<p>Each family is downloaded once, in the background, and cached in <code>ZetaPro/icons/</code>. Delete the cached file to refresh it. While a family loads, or if it cannot be loaded, the built-in local icon is shown and then replaced by the real one as soon as it is ready.</p>
+<p>Solar names end with a variant: <code>-linear</code>, <code>-outline</code>, <code>-bold</code>, <code>-broken</code>, <code>-line-duotone</code> and <code>-bold-duotone</code>. Not every icon has all of them. <code>solar:bomb</code> picks the first variant that exists, in that order, and <code>solar:bomb-bold-duotone</code> asks for one explicitly.</p>
 
 <h2>Icons for script hubs</h2>
 <p>The set was chosen for hub interfaces rather than generic app UI.</p>
@@ -401,7 +605,7 @@ Zeta:SetIconProvider("Mine")</code></pre></div>
 <tr><td>Executor support</td><td><code>Http</code>, <code>FileSystem</code> and <code>getcustomasset</code>.</td></tr>
 <tr><td>Cache</td><td>Saved in <code>ZetaPro/icons/</code> and reused.</td></tr>
 <tr><td>Fallback</td><td>If anything fails, the fallback dot is shown and the UI keeps working.</td></tr></table>
-<p>Built-in icons are local and do not depend on HTTP in any way.</p>
+<p>Plain names such as <code>"home"</code> are local and never use HTTP. Family icons download one file per family, not one request per icon, and fall back to the local set if that fails.</p>
 
 <h2>Hot swap</h2>
 <div class="cb"><pre><code>Tab:SetIcon("x")
@@ -409,6 +613,9 @@ Component:SetIcon("check")
 Component:SetIcon("solar:flame")
 Component:SetIcon(nil)</code></pre></div>
 <p>The icon element is updated in place. The tab or component is not rebuilt, and <code>nil</code> removes the icon.</p>
+
+<h2>Credits</h2>
+<p>The icon families are provided by <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>, licensed under the MIT License (Copyright (c) 2025 Footages). The sets are Lucide, Solar, Geist, Craft and SF Symbols, which belong to their authors and keep their own licenses.</p>
 
 <h2>Compatibility</h2>
 <p><code>Icon = "home"</code> is still valid and always will be. <code>Icon = "solar:sword"</code> is only an extension of the same API: existing scripts do not need to change.</p>
@@ -488,6 +695,22 @@ st:Get(); st:Set(2); st:OnChanged(fn); st:Destroy()</code></pre></div>
 <p><code>Window:Destroy()</code> removes one window. <code>Zeta:Unload()</code> removes everything, including notifications and keybinds.</p>
 </section>
 
+<section id="faq" data-g="Reference" data-t="FAQ">
+<h1>FAQ</h1>
+<p class="lead">Quick answers to common questions.</p>
+<div class="faq">
+<details><summary>What is ZetaPro?</summary><div><p>A modern UI library for Roblox executors, written in Luau. It gives you windows, tabs, sections, buttons, toggles, sliders, dropdowns, inputs, keybinds, color pickers, dialogs and notifications, with themes, icons, config saving and full cleanup built in.</p></div></details>
+<details><summary>How do I install ZetaPro?</summary><div><p>Run one line in your executor:</p><div class="cb"><pre><code>local Zeta = loadstring(game:HttpGet("https://raw.githubusercontent.com/realkalii/ZetaPro/main/src/init.luau"))()</code></pre></div><p>See <a href="#install">Installation</a> and the <a href="#home">Quick start</a>.</p></div></details>
+<details><summary>Does ZetaPro support themes?</summary><div><p>Yes. Dark, Light, Midnight and Zeta are built in, you can register your own with <code>Zeta:RegisterTheme</code>, and <code>Zeta:SetTheme</code> updates the whole UI instantly. See <a href="#themes">Themes</a>.</p></div></details>
+<details><summary>How do icons work?</summary><div><p>Use a plain name like <code>"home"</code>, or a family name like <code>"solar:sword"</code> or <code>"geist:code"</code>. You can also use your own image or a custom provider. See <a href="#icons">Icons</a>.</p></div></details>
+<details><summary>Can I create custom components?</summary><div><p>Yes. <code>Zeta:RegisterComponent(name, factory)</code> adds a new <code>Add&lt;Name&gt;</code> method to tabs and sections. See <a href="#custom">Custom components</a>.</p></div></details>
+<details><summary>Does it work on mobile?</summary><div><p>Yes. Dragging, scrolling and tapping work with touch, the sidebar becomes compact on small windows, and a floating restore button brings the window back. Keybinds need a physical keyboard. See <a href="#keybinds">Keybinds</a>.</p></div></details>
+<details><summary>How do I report a bug?</summary><div><p>Open an issue on <a href="https://github.com/realkalii/ZetaPro/issues" target="_blank" rel="noopener">GitHub</a> and include the full error text (library errors start with <code>[ZETA][ERROR]</code>), your executor name, the smallest script that shows the problem, and what you expected to happen. A screenshot helps for visual bugs.</p></div></details>
+<details><summary>Where can I get support?</summary><div><p>Join the Discord server to ask questions, get help with your scripts and share what you build.</p></div></details>
+</div>
+<p style="margin-top:26px"><a class="cta" href="https://discord.gg/HMwSnXRxsj" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Join our Discord</a></p>
+</section>
+
 </main>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -505,6 +728,18 @@ secs.forEach(t=>[...t.children].forEach((c,i)=>{c.style.setProperty("--i",Math.m
 const pg=$("#pg");let tk=0;
 addEventListener("scroll",()=>{if(tk)return;tk=requestAnimationFrame(()=>{tk=0;const h=document.documentElement,m=h.scrollHeight-h.clientHeight;pg.style.setProperty("--p",m>0?Math.min(1,scrollY/m):0)})},{passive:true});
 $("#bd").onclick=()=>nav.classList.remove("open");
+const zp=$("#zp");
+zp.querySelectorAll(".zp-th button").forEach(b=>b.onclick=()=>{zp.dataset.th=b.dataset.th;zp.querySelectorAll(".zp-th button").forEach(x=>x.classList.toggle("on",x===b))});
+zp.querySelectorAll(".zp-side button").forEach(b=>b.onclick=()=>{zp.querySelectorAll(".zp-side button,.zp-pg").forEach(x=>x.classList.remove("on"));b.classList.add("on");zp.querySelector('.zp-pg[data-p="'+b.dataset.p+'"]').classList.add("on")});
+let tt;const toast=m=>{const t=$("#zt");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2200)};
+zp.querySelectorAll(".ztg").forEach(t=>t.onclick=()=>t.classList.toggle("on"));
+zp.querySelectorAll(".zsl input").forEach(i=>{const o=i.nextElementSibling;i.oninput=()=>o.textContent=i.value});
+zp.querySelectorAll(".zd").forEach(d=>{const b=d.firstElementChild;b.onclick=e=>{e.stopPropagation();d.classList.toggle("open")};d.querySelectorAll("li").forEach(l=>l.onclick=()=>{b.firstChild.textContent=l.textContent;d.classList.remove("open")})});
+addEventListener("click",()=>zp.querySelectorAll(".zd.open").forEach(d=>d.classList.remove("open")));
+$("#zhello").onclick=()=>toast("Hello from ZETA Pro!");
+const zk=$("#zk");let cap=false;
+zk.onclick=e=>{e.stopPropagation();cap=true;zk.textContent="Press a key..."};
+addEventListener("keydown",e=>{if(!cap)return;e.preventDefault();cap=false;if(e.key==="Escape"){zk.textContent=zk.dataset.k;return}const m={ControlRight:"RightControl",ControlLeft:"LeftControl",ShiftRight:"RightShift",ShiftLeft:"LeftShift"},n=m[e.code]||e.code.replace(/^Key/,"");zk.dataset.k=n;zk.textContent=n;toast("Menu key set to "+n)});
 addEventListener("hashchange",go);go();
 $("#menu").onclick=()=>nav.classList.toggle("open");
 const R=$("#res"),Q=$("#q");
