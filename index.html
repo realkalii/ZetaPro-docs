@@ -213,7 +213,7 @@ Section:AddDropdown("Mode", {
 <div class="grid">
 <a class="card" href="#components"><b>Components</b><span>Button, Toggle, Slider, Dropdown, Input, Keybind, Colorpicker.</span></a>
 <a class="card" href="#themes"><b>Themes</b><span>Dark, Light, Midnight, Zeta, or your own. Hot swap.</span></a>
-<a class="card" href="#icons"><b>Icons</b><span>Built-in families such as solar:sword and geist:code.</span></a>
+<a class="card" href="#icons"><b>Icons</b><span>Built-in families such as solar:bomb and geist:code.</span></a>
 <a class="card" href="#keybinds"><b>Keybinds</b><span>Hotkeys you can rebind at runtime.</span></a>
 <a class="card" href="#faq"><b>FAQ</b><span>Common questions and where to get help.</span></a>
 <a class="card" href="https://discord.gg/HMwSnXRxsj" target="_blank" rel="noopener"><b>Join our Discord</b><span>Ask questions and share what you build.</span></a>
@@ -521,38 +521,38 @@ Section:AddButton({ Title = "Run", Icon = Zeta.Icons.Home })</code></pre></div>
 <h2>Families</h2>
 <p>Add a family prefix with <code>family:name</code>. It is an extension of the same API, so nothing needs to be migrated.</p>
 <div class="cb"><pre><code>Icon = "lucide:settings"
-Icon = "solar:sword"
+Icon = "solar:bomb"
 Icon = "geist:code"
-Icon = "craft:monitor"
-Icon = "sfsymbols:check"</code></pre></div>
+Icon = "craft:macbook-stroke"
+Icon = "sfsymbols:HouseFill"</code></pre></div>
 <table><tr><th>Family</th><th>Best for</th><th>Examples</th></tr>
-<tr><td><code>lucide</code></td><td>General UI. Accepts every built-in icon name.</td><td><code>lucide:settings</code> <code>lucide:home</code></td></tr>
-<tr><td><code>solar</code></td><td>Gameplay: combat, movement, weapons, farming, effects.</td><td><code>solar:sword</code> <code>solar:axe</code> <code>solar:flame</code> <code>solar:jump</code> <code>solar:rocket</code></td></tr>
-<tr><td><code>geist</code></td><td>Code, scripts, servers, APIs, databases, developer tools.</td><td><code>geist:script</code> <code>geist:api</code> <code>geist:server</code> <code>geist:debugger</code></td></tr>
-<tr><td><code>craft</code></td><td>Devices, tools, objects, hardware and media.</td><td><code>craft:monitor</code> <code>craft:keyboard</code> <code>craft:camera</code> <code>craft:key</code></td></tr>
-<tr><td><code>sfsymbols</code></td><td>Compact controls and indicators.</td><td><code>sfsymbols:check</code> <code>sfsymbols:toggle</code> <code>sfsymbols:chevron-down</code></td></tr></table>
-<p>Plain names use the built-in local set. For <code>family:name</code>, the real icons come from <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>. An unknown family or name shows a small fallback dot instead of an error.</p>
+<tr><td><code>lucide</code></td><td>General UI icons.</td><td><code>lucide:settings</code> <code>lucide:bell</code></td></tr>
+<tr><td><code>solar</code></td><td>A large set with many variants. Good for items, effects and status.</td><td><code>solar:bomb</code> <code>solar:bug</code> <code>solar:crown</code> <code>solar:backpack</code> <code>solar:bolt</code></td></tr>
+<tr><td><code>geist</code></td><td>Code, scripts, servers, APIs, databases, developer tools.</td><td><code>geist:code</code> <code>geist:accessibility-unread</code></td></tr>
+<tr><td><code>craft</code></td><td>Devices, tools, objects, hardware and media. Names end with <code>-stroke</code>.</td><td><code>craft:macbook-stroke</code></td></tr>
+<tr><td><code>sfsymbols</code></td><td>Compact controls and indicators. Names use PascalCase.</td><td><code>sfsymbols:HouseFill</code></td></tr></table>
+<p>Plain names use the built-in local set. For <code>family:name</code>, the real icons come from <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>. Only names that exist in a family resolve, so a name that the family does not have, such as <code>solar:sword</code>, shows a small fallback dot instead of an error.</p>
 
 <h2>Real icons and variants</h2>
-<p>Each family is downloaded once, in the background, and cached in <code>ZetaPro/icons/</code>. Delete the cached file to refresh it. While a family loads, or if it cannot be loaded, the built-in local icon is shown and then replaced by the real one as soon as it is ready.</p>
+<p>Each family is downloaded once, in the background, and cached in <code>ZetaPro/icons/</code>. Delete the cached file to refresh it. While a family loads, or if it cannot be loaded, a built-in placeholder is shown when one exists, and it is replaced by the real icon as soon as it is ready.</p>
 <p>Solar names end with a variant: <code>-linear</code>, <code>-outline</code>, <code>-bold</code>, <code>-broken</code>, <code>-line-duotone</code> and <code>-bold-duotone</code>. Not every icon has all of them. <code>solar:bomb</code> picks the first variant that exists, in that order, and <code>solar:bomb-bold-duotone</code> asks for one explicitly.</p>
 
 <h2>Icons for script hubs</h2>
-<p>The set was chosen for hub interfaces rather than generic app UI.</p>
+<p>The set was chosen for hub interfaces rather than generic app UI. These are built-in names, so they work without a family prefix.</p>
 <table><tr><th>Category</th><th>Names</th></tr>
 <tr><td>Farm</td><td><code>farm</code></td></tr>
-<tr><td>Combat, weapons, sword</td><td><code>combat</code> <code>weapons</code> <code>sword</code> <code>solar:swords</code> <code>solar:bow</code> <code>solar:ammo</code></td></tr>
+<tr><td>Combat, weapons, sword</td><td><code>combat</code> <code>weapons</code> <code>sword</code> <code>solar:bomb</code></td></tr>
 <tr><td>Movement, fly</td><td><code>movement</code> <code>run</code> <code>jump</code> <code>speed</code> <code>fly</code> <code>rocket</code></td></tr>
 <tr><td>ESP</td><td><code>esp</code> <code>eye</code> <code>target</code></td></tr>
-<tr><td>Cards, fire</td><td><code>cards</code> <code>fire</code> <code>solar:flame</code></td></tr>
+<tr><td>Cards, fire</td><td><code>cards</code> <code>fire</code></td></tr>
 <tr><td>Player, NPC, pets</td><td><code>player</code> <code>npc</code> <code>pets</code></td></tr>
 <tr><td>Quest, teleport, map</td><td><code>quest</code> <code>teleport</code> <code>map</code></td></tr>
 <tr><td>Inventory, items</td><td><code>inventory</code> <code>items</code></td></tr>
-<tr><td>Script, developer</td><td><code>script</code> <code>developer</code> <code>geist:code</code> <code>geist:script</code></td></tr>
+<tr><td>Script, developer</td><td><code>script</code> <code>developer</code> <code>geist:code</code></td></tr>
 <tr><td>Settings</td><td><code>settings</code></td></tr></table>
 
 <h2>Zeta.Icons:Get()</h2>
-<div class="cb"><pre><code>local Icon = Zeta.Icons:Get("solar:sword")
+<div class="cb"><pre><code>local Icon = Zeta.Icons:Get("solar:bomb")
 if Icon then
     print(Icon.Type, Icon.Name)
 end</code></pre></div>
@@ -578,7 +578,7 @@ end)
 Zeta:SetIconProvider("Mine")</code></pre></div>
 <p>The active provider receives the full name first, including any prefix. Resolution order:</p>
 <table><tr><th>Step</th><th>What happens</th></tr>
-<tr><td>1</td><td>The active provider is called with the full name, such as <code>"solar:sword"</code>.</td></tr>
+<tr><td>1</td><td>The active provider is called with the full name, such as <code>"solar:bomb"</code>.</td></tr>
 <tr><td>2</td><td>If it returned <code>nil</code> and the name looks like <code>family:name</code>, the family resolver runs.</td></tr>
 <tr><td>3</td><td>The built-in set is tried by plain name.</td></tr>
 <tr><td>4</td><td>Nothing found: the fallback dot is shown.</td></tr></table>
@@ -605,12 +605,12 @@ Zeta:SetIconProvider("Mine")</code></pre></div>
 <tr><td>Executor support</td><td><code>Http</code>, <code>FileSystem</code> and <code>getcustomasset</code>.</td></tr>
 <tr><td>Cache</td><td>Saved in <code>ZetaPro/icons/</code> and reused.</td></tr>
 <tr><td>Fallback</td><td>If anything fails, the fallback dot is shown and the UI keeps working.</td></tr></table>
-<p>Plain names such as <code>"home"</code> are local and never use HTTP. Family icons download one file per family, not one request per icon, and fall back to the local set if that fails.</p>
+<p>Plain names such as <code>"home"</code> are local and never use HTTP. Family icons download one file per family, not one request per icon, and fall back to a built-in placeholder, or to the fallback dot, if that fails.</p>
 
 <h2>Hot swap</h2>
 <div class="cb"><pre><code>Tab:SetIcon("x")
 Component:SetIcon("check")
-Component:SetIcon("solar:flame")
+Component:SetIcon("solar:bomb")
 Component:SetIcon(nil)</code></pre></div>
 <p>The icon element is updated in place. The tab or component is not rebuilt, and <code>nil</code> removes the icon.</p>
 
@@ -618,7 +618,7 @@ Component:SetIcon(nil)</code></pre></div>
 <p>The icon families are provided by <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>, licensed under the MIT License (Copyright (c) 2025 Footages). The sets are Lucide, Solar, Geist, Craft and SF Symbols, which belong to their authors and keep their own licenses.</p>
 
 <h2>Compatibility</h2>
-<p><code>Icon = "home"</code> is still valid and always will be. <code>Icon = "solar:sword"</code> is only an extension of the same API: existing scripts do not need to change.</p>
+<p><code>Icon = "home"</code> is still valid and always will be. <code>Icon = "solar:bomb"</code> is only an extension of the same API: existing scripts do not need to change.</p>
 </section>
 
 <section id="config" data-g="Customize" data-t="Config and state">
@@ -702,7 +702,7 @@ st:Get(); st:Set(2); st:OnChanged(fn); st:Destroy()</code></pre></div>
 <details><summary>What is ZetaPro?</summary><div><p>A modern UI library for Roblox executors, written in Luau. It gives you windows, tabs, sections, buttons, toggles, sliders, dropdowns, inputs, keybinds, color pickers, dialogs and notifications, with themes, icons, config saving and full cleanup built in.</p></div></details>
 <details><summary>How do I install ZetaPro?</summary><div><p>Run one line in your executor:</p><div class="cb"><pre><code>local Zeta = loadstring(game:HttpGet("https://raw.githubusercontent.com/realkalii/ZetaPro/main/src/init.luau"))()</code></pre></div><p>See <a href="#install">Installation</a> and the <a href="#home">Quick start</a>.</p></div></details>
 <details><summary>Does ZetaPro support themes?</summary><div><p>Yes. Dark, Light, Midnight and Zeta are built in, you can register your own with <code>Zeta:RegisterTheme</code>, and <code>Zeta:SetTheme</code> updates the whole UI instantly. See <a href="#themes">Themes</a>.</p></div></details>
-<details><summary>How do icons work?</summary><div><p>Use a plain name like <code>"home"</code>, or a family name like <code>"solar:sword"</code> or <code>"geist:code"</code>. You can also use your own image or a custom provider. See <a href="#icons">Icons</a>.</p></div></details>
+<details><summary>How do icons work?</summary><div><p>Use a plain name like <code>"home"</code>, or a family name like <code>"solar:bomb"</code> or <code>"geist:code"</code>. You can also use your own image or a custom provider. See <a href="#icons">Icons</a>.</p></div></details>
 <details><summary>Can I create custom components?</summary><div><p>Yes. <code>Zeta:RegisterComponent(name, factory)</code> adds a new <code>Add&lt;Name&gt;</code> method to tabs and sections. See <a href="#custom">Custom components</a>.</p></div></details>
 <details><summary>Does it work on mobile?</summary><div><p>Yes. Dragging, scrolling and tapping work with touch, the sidebar becomes compact on small windows, and a floating restore button brings the window back. Keybinds need a physical keyboard. See <a href="#keybinds">Keybinds</a>.</p></div></details>
 <details><summary>How do I report a bug?</summary><div><p>Open an issue on <a href="https://github.com/realkalii/ZetaPro/issues" target="_blank" rel="noopener">GitHub</a> and include the full error text (library errors start with <code>[ZETA][ERROR]</code>), your executor name, the smallest script that shows the problem, and what you expected to happen. A screenshot helps for visual bugs.</p></div></details>
