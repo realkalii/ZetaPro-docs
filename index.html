@@ -311,16 +311,107 @@ Zeta:SetScale(0.9)</code></pre></div>
 
 <section id="icons" data-g="Customize" data-t="Icons">
 <h1>Icons</h1>
-<div class="cb"><pre><code>Icon = "home"
-Icon = Zeta.Icons.Home
-Icon = { Type = "Image", Source = "rbxassetid://123", Tint = true }
-Icon = { Type = "Url", Source = "https://host/icon.png", Tint = true }</code></pre></div>
-<p>Built-in names: <code>home settings search user shield code terminal folder trash plus minus check x info alert alert-circle check-circle chevron-down chevron-up chevron-right copy eye keyboard bell zap lock menu grip play crosshair help</code>. They are original line drawings rendered with Frames: no assets, no network.</p>
-<p><code>Type = "Url"</code> is opt-in: https PNG only, up to 256 KB, cached in <code>ZetaPro/icons/</code>, needs HTTP, file system and <code>getcustomasset</code>. If anything fails a fallback dot is shown.</p>
+<p class="lead">Built-in icons drawn for Roblox script hubs, grouped in families. No assets, no network.</p>
+
+<h2>Basic usage</h2>
+<div class="cb"><pre><code>Window:AddTab({ Title = "Main", Icon = "home" })
+Section:AddButton({ Title = "Run", Icon = Zeta.Icons.Home })</code></pre></div>
+<p>Plain names such as <code>"home"</code> keep working exactly as before. <code>Zeta.Icons.Home</code> and <code>Zeta.Icons.ChevronDown</code> resolve to the same icons as <code>"home"</code> and <code>"chevron-down"</code>.</p>
+
+<h2>Families</h2>
+<p>Add a family prefix with <code>family:name</code>. It is an extension of the same API, so nothing needs to be migrated.</p>
+<div class="cb"><pre><code>Icon = "lucide:settings"
+Icon = "solar:sword"
+Icon = "geist:code"
+Icon = "craft:monitor"
+Icon = "sfsymbols:check"</code></pre></div>
+<table><tr><th>Family</th><th>Best for</th><th>Examples</th></tr>
+<tr><td><code>lucide</code></td><td>General UI. Accepts every built-in icon name.</td><td><code>lucide:settings</code> <code>lucide:home</code></td></tr>
+<tr><td><code>solar</code></td><td>Gameplay: combat, movement, weapons, farming, effects.</td><td><code>solar:sword</code> <code>solar:axe</code> <code>solar:flame</code> <code>solar:jump</code> <code>solar:rocket</code></td></tr>
+<tr><td><code>geist</code></td><td>Code, scripts, servers, APIs, databases, developer tools.</td><td><code>geist:script</code> <code>geist:api</code> <code>geist:server</code> <code>geist:debugger</code></td></tr>
+<tr><td><code>craft</code></td><td>Devices, tools, objects, hardware and media.</td><td><code>craft:monitor</code> <code>craft:keyboard</code> <code>craft:camera</code> <code>craft:key</code></td></tr>
+<tr><td><code>sfsymbols</code></td><td>Compact controls and indicators.</td><td><code>sfsymbols:check</code> <code>sfsymbols:toggle</code> <code>sfsymbols:chevron-down</code></td></tr></table>
+<p>All built-in icons share one line style, so icons from different families look consistent next to each other. An unknown family or name shows a small fallback dot instead of an error.</p>
+
+<h2>Icons for script hubs</h2>
+<p>The set was chosen for hub interfaces rather than generic app UI.</p>
+<table><tr><th>Category</th><th>Names</th></tr>
+<tr><td>Farm</td><td><code>farm</code></td></tr>
+<tr><td>Combat, weapons, sword</td><td><code>combat</code> <code>weapons</code> <code>sword</code> <code>solar:swords</code> <code>solar:bow</code> <code>solar:ammo</code></td></tr>
+<tr><td>Movement, fly</td><td><code>movement</code> <code>run</code> <code>jump</code> <code>speed</code> <code>fly</code> <code>rocket</code></td></tr>
+<tr><td>ESP</td><td><code>esp</code> <code>eye</code> <code>target</code></td></tr>
+<tr><td>Cards, fire</td><td><code>cards</code> <code>fire</code> <code>solar:flame</code></td></tr>
+<tr><td>Player, NPC, pets</td><td><code>player</code> <code>npc</code> <code>pets</code></td></tr>
+<tr><td>Quest, teleport, map</td><td><code>quest</code> <code>teleport</code> <code>map</code></td></tr>
+<tr><td>Inventory, items</td><td><code>inventory</code> <code>items</code></td></tr>
+<tr><td>Script, developer</td><td><code>script</code> <code>developer</code> <code>geist:code</code> <code>geist:script</code></td></tr>
+<tr><td>Settings</td><td><code>settings</code></td></tr></table>
+
+<h2>Zeta.Icons:Get()</h2>
+<div class="cb"><pre><code>local Icon = Zeta.Icons:Get("solar:sword")
+if Icon then
+    print(Icon.Type, Icon.Name)
+end</code></pre></div>
+<p>Returns the icon specification, or <code>nil</code> when the name cannot be resolved. Both plain and family names are accepted.</p>
+
+<h2>Zeta.Icons:List()</h2>
+<div class="cb"><pre><code>local Icons = Zeta.Icons:List()
+print(#Icons)</code></pre></div>
+<p>Returns the built-in names without a family prefix, including the aliases (for example <code>"combat"</code> and <code>"theme"</code>).</p>
+
+<h2>Custom providers</h2>
 <div class="cb"><pre><code>Zeta:RegisterIconProvider("Mine", function(name)
-    if name == "logo" then return { Type = "Image", Source = "rbxassetid://123" } end
+    if name == "logo" then
+        return {
+            Type = "Image",
+            Source = "rbxassetid://123",
+            Tint = true,
+        }
+    end
+    return nil
 end)
+
 Zeta:SetIconProvider("Mine")</code></pre></div>
+<p>The active provider receives the full name first, including any prefix. Resolution order:</p>
+<table><tr><th>Step</th><th>What happens</th></tr>
+<tr><td>1</td><td>The active provider is called with the full name, such as <code>"solar:sword"</code>.</td></tr>
+<tr><td>2</td><td>If it returned <code>nil</code> and the name looks like <code>family:name</code>, the family resolver runs.</td></tr>
+<tr><td>3</td><td>The built-in set is tried by plain name.</td></tr>
+<tr><td>4</td><td>Nothing found: the fallback dot is shown.</td></tr></table>
+
+<h2>Image icons</h2>
+<div class="cb"><pre><code>Icon = {
+    Type = "Image",
+    Source = "rbxassetid://123",
+    Tint = true,
+}</code></pre></div>
+<p><code>Tint = true</code> paints the image with the theme color. Use <code>Tint = false</code> to keep the original colors, for example for a logo.</p>
+
+<h2>Remote icons</h2>
+<div class="cb"><pre><code>Icon = {
+    Type = "Url",
+    Source = "https://host/icon.png",
+    Tint = true,
+}</code></pre></div>
+<p>Remote icons are opt-in and never required. They need:</p>
+<table><tr><th>Requirement</th><th>Detail</th></tr>
+<tr><td>HTTPS</td><td>Plain http links are rejected.</td></tr>
+<tr><td>PNG</td><td>Other formats are rejected.</td></tr>
+<tr><td>Size</td><td>Up to 256 KB.</td></tr>
+<tr><td>Executor support</td><td><code>Http</code>, <code>FileSystem</code> and <code>getcustomasset</code>.</td></tr>
+<tr><td>Cache</td><td>Saved in <code>ZetaPro/icons/</code> and reused.</td></tr>
+<tr><td>Fallback</td><td>If anything fails, the fallback dot is shown and the UI keeps working.</td></tr></table>
+<p>Built-in icons are local and do not depend on HTTP in any way.</p>
+
+<h2>Hot swap</h2>
+<div class="cb"><pre><code>Tab:SetIcon("x")
+Component:SetIcon("check")
+Component:SetIcon("solar:flame")
+Component:SetIcon(nil)</code></pre></div>
+<p>The icon element is updated in place. The tab or component is not rebuilt, and <code>nil</code> removes the icon.</p>
+
+<h2>Compatibility</h2>
+<p><code>Icon = "home"</code> is still valid and always will be. <code>Icon = "solar:sword"</code> is only an extension of the same API: existing scripts do not need to change.</p>
 </section>
 
 <section id="config" data-g="Customize" data-t="Config and state">
