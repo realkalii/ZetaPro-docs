@@ -511,7 +511,7 @@ Zeta:SetScale(0.9)</code></pre></div>
 
 <section id="icons" data-g="Customize" data-t="Icons">
 <h1>Icons</h1>
-<p class="lead">Icons for Roblox script hubs. Plain names use Lucide, and families add Solar, Geist, Craft and SF Symbols.</p>
+<p class="lead">Plain names come from icons.rest (Lucide). Families add Solar, Geist, Craft and SF Symbols.</p>
 
 <h2>Basic usage</h2>
 <div class="cb"><pre><code>Window:AddTab({ Title = "Main", Icon = "home" })
@@ -531,25 +531,25 @@ Icon = "sfsymbols:HouseFill"</code></pre></div>
 <tr><td><code>geist</code></td><td>Code, scripts, servers, APIs, databases, developer tools.</td><td><code>geist:code</code> <code>geist:accessibility-unread</code></td></tr>
 <tr><td><code>craft</code></td><td>Devices, tools, objects, hardware and media. Names end with <code>-stroke</code>.</td><td><code>craft:macbook-stroke</code></td></tr>
 <tr><td><code>sfsymbols</code></td><td>Compact controls and indicators. Names use PascalCase.</td><td><code>sfsymbols:HouseFill</code></td></tr></table>
-<p>Plain names use the real Lucide icons, with a hand-drawn local set as a fallback when Lucide cannot be loaded. For <code>family:name</code>, the real icons come from <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>. Only names that exist in a family resolve, so a name that the family does not have, such as <code>solar:sword</code>, shows a small fallback dot instead of an error.</p>
+<p>Plain names use the <a href="https://www.icons.rest/" target="_blank" rel="noopener">icons.rest</a> catalog (Lucide icons mapped to Roblox asset IDs), which is built into the library. For <code>family:name</code>, the real icons come from <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>. A name that does not exist is invalid: the icon is hidden and a warning is printed once. There is no fallback to another icon set.</p>
 
 <h2>Real icons and variants</h2>
-<p>Each family is downloaded once, in the background, and cached in <code>ZetaPro/icons/</code>. Delete the cached file to refresh it. While a family loads, or if it cannot be loaded, a built-in placeholder is shown when one exists, and it is replaced by the real icon as soon as it is ready.</p>
+<p>Each family is downloaded once, in the background, and cached in <code>ZetaPro/icons/</code>. Delete the cached file to refresh it. Until a family is loaded, or if it cannot be loaded, its icons stay hidden, and they appear as soon as the family is ready.</p>
 <p>Solar names end with a variant: <code>-linear</code>, <code>-outline</code>, <code>-bold</code>, <code>-broken</code>, <code>-line-duotone</code> and <code>-bold-duotone</code>. Not every icon has all of them. <code>solar:bomb</code> picks the first variant that exists, in that order, and <code>solar:bomb-bold-duotone</code> asks for one explicitly.</p>
 
 <h2>Icons for script hubs</h2>
-<p>The set was chosen for hub interfaces rather than generic app UI. These are built-in names, so they work without a family prefix.</p>
+<p>icons.rest has no hub-specific names, so these are real icon names that fit common hub tabs. See the full list at icons.rest or with <code>Zeta.Icons:List()</code>.</p>
 <table><tr><th>Category</th><th>Names</th></tr>
-<tr><td>Farm</td><td><code>farm</code></td></tr>
-<tr><td>Combat, weapons, sword</td><td><code>combat</code> <code>weapons</code> <code>sword</code> <code>solar:bomb</code></td></tr>
-<tr><td>Movement, fly</td><td><code>movement</code> <code>run</code> <code>jump</code> <code>speed</code> <code>fly</code> <code>rocket</code></td></tr>
-<tr><td>ESP</td><td><code>esp</code> <code>eye</code> <code>target</code></td></tr>
-<tr><td>Cards, fire</td><td><code>cards</code> <code>fire</code></td></tr>
-<tr><td>Player, NPC, pets</td><td><code>player</code> <code>npc</code> <code>pets</code></td></tr>
-<tr><td>Quest, teleport, map</td><td><code>quest</code> <code>teleport</code> <code>map</code></td></tr>
-<tr><td>Inventory, items</td><td><code>inventory</code> <code>items</code></td></tr>
-<tr><td>Script, developer</td><td><code>script</code> <code>developer</code> <code>geist:code</code></td></tr>
-<tr><td>Settings</td><td><code>settings</code></td></tr></table>
+<tr><td>Farm</td><td><code>sprout</code> <code>wheat</code> <code>tractor</code></td></tr>
+<tr><td>Combat</td><td><code>sword</code> <code>swords</code> <code>shield</code> <code>crosshair</code> <code>target</code> <code>bomb</code></td></tr>
+<tr><td>Movement, fly</td><td><code>footprints</code> <code>move</code> <code>zap</code> <code>plane</code> <code>rocket</code> <code>feather</code></td></tr>
+<tr><td>ESP</td><td><code>eye</code> <code>scan-eye</code> <code>crosshair</code></td></tr>
+<tr><td>Cards, fire</td><td><code>spade</code> <code>club</code> <code>diamond</code> <code>flame</code></td></tr>
+<tr><td>Player, NPC, pets</td><td><code>user</code> <code>users</code> <code>bot</code> <code>paw-print</code></td></tr>
+<tr><td>Quest, teleport, map</td><td><code>scroll</code> <code>compass</code> <code>map</code> <code>map-pin</code></td></tr>
+<tr><td>Inventory, items</td><td><code>backpack</code> <code>package</code> <code>box</code> <code>gem</code></td></tr>
+<tr><td>Script, developer</td><td><code>file-code</code> <code>code</code> <code>terminal</code> <code>bug</code></td></tr>
+<tr><td>Settings</td><td><code>settings</code> <code>layout-dashboard</code></td></tr></table>
 
 <h2>Zeta.Icons:Get()</h2>
 <div class="cb"><pre><code>local Icon = Zeta.Icons:Get("solar:bomb")
@@ -561,7 +561,7 @@ end</code></pre></div>
 <h2>Zeta.Icons:List()</h2>
 <div class="cb"><pre><code>local Icons = Zeta.Icons:List()
 print(#Icons)</code></pre></div>
-<p>Returns the built-in names without a family prefix, including the aliases (for example <code>"combat"</code> and <code>"theme"</code>).</p>
+<p>Returns the icons.rest names (without a family prefix), sorted. A name that is not in this list is invalid.</p>
 
 <h2>Custom providers</h2>
 <div class="cb"><pre><code>Zeta:RegisterIconProvider("Mine", function(name)
@@ -580,8 +580,8 @@ Zeta:SetIconProvider("Mine")</code></pre></div>
 <table><tr><th>Step</th><th>What happens</th></tr>
 <tr><td>1</td><td>The active provider is called with the full name, such as <code>"solar:bomb"</code>.</td></tr>
 <tr><td>2</td><td>If it returned <code>nil</code> and the name looks like <code>family:name</code>, the family resolver runs.</td></tr>
-<tr><td>3</td><td>The built-in set is tried by plain name.</td></tr>
-<tr><td>4</td><td>Nothing found: the fallback dot is shown.</td></tr></table>
+<tr><td>3</td><td>The icons.rest catalog is tried by plain name.</td></tr>
+<tr><td>4</td><td>Nothing found: the icon is invalid. It is hidden and a warning is printed once.</td></tr></table>
 
 <h2>Image icons</h2>
 <div class="cb"><pre><code>Icon = {
@@ -604,8 +604,8 @@ Zeta:SetIconProvider("Mine")</code></pre></div>
 <tr><td>Size</td><td>Up to 256 KB.</td></tr>
 <tr><td>Executor support</td><td><code>Http</code>, <code>FileSystem</code> and <code>getcustomasset</code>.</td></tr>
 <tr><td>Cache</td><td>Saved in <code>ZetaPro/icons/</code> and reused.</td></tr>
-<tr><td>Fallback</td><td>If anything fails, the fallback dot is shown and the UI keeps working.</td></tr></table>
-<p>Icons download one file per family (Lucide for plain names), not one request per icon, are cached on disk, and fall back to a built-in placeholder, or to the fallback dot, if that fails.</p>
+<tr><td>Fallback</td><td>If anything fails, the icon is hidden and the UI keeps working.</td></tr></table>
+<p>Plain names are built into the library and need no download. Family icons download one file per family, not one request per icon, and are cached on disk. If that fails, the icon stays hidden.</p>
 
 <h2>Hot swap</h2>
 <div class="cb"><pre><code>Tab:SetIcon("x")
@@ -615,7 +615,7 @@ Component:SetIcon(nil)</code></pre></div>
 <p>The icon element is updated in place. The tab or component is not rebuilt, and <code>nil</code> removes the icon.</p>
 
 <h2>Credits</h2>
-<p>The icon families are provided by <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>, licensed under the MIT License (Copyright (c) 2025 Footages). The sets are Lucide, Solar, Geist, Craft and SF Symbols, which belong to their authors and keep their own licenses.</p>
+<p>Plain icon names come from <a href="https://www.icons.rest/" target="_blank" rel="noopener">icons.rest</a>, which maps the Lucide icons (ISC License) to Roblox asset IDs. The icon families are provided by <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>, licensed under the MIT License (Copyright (c) 2025 Footages). The sets are Lucide, Solar, Geist, Craft and SF Symbols, which belong to their authors and keep their own licenses.</p>
 
 <h2>Compatibility</h2>
 <p><code>Icon = "home"</code> is still valid and always will be. <code>Icon = "solar:bomb"</code> is only an extension of the same API: existing scripts do not need to change.</p>
