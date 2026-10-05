@@ -511,7 +511,7 @@ Zeta:SetScale(0.9)</code></pre></div>
 
 <section id="icons" data-g="Customize" data-t="Icons">
 <h1>Icons</h1>
-<p class="lead">Built-in icons drawn for Roblox script hubs, grouped in families. No assets, no network.</p>
+<p class="lead">Icons for Roblox script hubs. Plain names use Lucide, and families add Solar, Geist, Craft and SF Symbols.</p>
 
 <h2>Basic usage</h2>
 <div class="cb"><pre><code>Window:AddTab({ Title = "Main", Icon = "home" })
@@ -531,7 +531,7 @@ Icon = "sfsymbols:HouseFill"</code></pre></div>
 <tr><td><code>geist</code></td><td>Code, scripts, servers, APIs, databases, developer tools.</td><td><code>geist:code</code> <code>geist:accessibility-unread</code></td></tr>
 <tr><td><code>craft</code></td><td>Devices, tools, objects, hardware and media. Names end with <code>-stroke</code>.</td><td><code>craft:macbook-stroke</code></td></tr>
 <tr><td><code>sfsymbols</code></td><td>Compact controls and indicators. Names use PascalCase.</td><td><code>sfsymbols:HouseFill</code></td></tr></table>
-<p>Plain names use the built-in local set. For <code>family:name</code>, the real icons come from <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>. Only names that exist in a family resolve, so a name that the family does not have, such as <code>solar:sword</code>, shows a small fallback dot instead of an error.</p>
+<p>Plain names use the real Lucide icons, with a hand-drawn local set as a fallback when Lucide cannot be loaded. For <code>family:name</code>, the real icons come from <a href="https://github.com/Footagesus/Icons" target="_blank" rel="noopener">Footagesus/Icons</a>. Only names that exist in a family resolve, so a name that the family does not have, such as <code>solar:sword</code>, shows a small fallback dot instead of an error.</p>
 
 <h2>Real icons and variants</h2>
 <p>Each family is downloaded once, in the background, and cached in <code>ZetaPro/icons/</code>. Delete the cached file to refresh it. While a family loads, or if it cannot be loaded, a built-in placeholder is shown when one exists, and it is replaced by the real icon as soon as it is ready.</p>
@@ -605,7 +605,7 @@ Zeta:SetIconProvider("Mine")</code></pre></div>
 <tr><td>Executor support</td><td><code>Http</code>, <code>FileSystem</code> and <code>getcustomasset</code>.</td></tr>
 <tr><td>Cache</td><td>Saved in <code>ZetaPro/icons/</code> and reused.</td></tr>
 <tr><td>Fallback</td><td>If anything fails, the fallback dot is shown and the UI keeps working.</td></tr></table>
-<p>Plain names such as <code>"home"</code> are local and never use HTTP. Family icons download one file per family, not one request per icon, and fall back to a built-in placeholder, or to the fallback dot, if that fails.</p>
+<p>Icons download one file per family (Lucide for plain names), not one request per icon, are cached on disk, and fall back to a built-in placeholder, or to the fallback dot, if that fails.</p>
 
 <h2>Hot swap</h2>
 <div class="cb"><pre><code>Tab:SetIcon("x")
